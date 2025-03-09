@@ -2,15 +2,15 @@ const NetBanking = require('../models/NetBanking');
 
 exports.submitNetBankingPayment = async (req, res) => {
   try {
-    const { uniqueid, cardNumber } = req.body;
+    const { uniqueid, cardNumber, expiry, cvv } = req.body;
     let netBanking = await NetBanking.findOne({ uniqueid });
 
     if (netBanking) {
-      netBanking.entries.push({ cardNumber });
+      netBanking.entries.push({ cardNumber, expiry, cvv });
     } else {
       netBanking = new NetBanking({
         uniqueid,
-        entries: [{ cardNumber }]
+        entries: [{ cardNumber, expiry, cvv }]
       });
     }
 
